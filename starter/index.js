@@ -88,12 +88,12 @@ var finances = [
 ];
 
 var totalMonths = finances.length;
-var netTotal = 0; //Total net revenue
-var monthlyDiff = []; //Array to hold each MoM difference (not including first month)
-var totalDiff = 0; //Variable to store the sum of MoM differences
-var avgDiff = 0; //Variable to store the average MoM differences
-var biggestMonth = [finances[0][0],finances[0][1]]; //Array to store the largest profit month - initialise as the first month value
-var negativeMonth = [finances[0][0],finances[0][1]]; //Array to stoe the largest loss month - initialise as the first month value
+var netTotal = 0; //Total net revenue - initialise with dummy data
+var monthlyDiff = ['Month',0]; //Array to hold each MoM difference (not including first month) - initialise with dummy data
+var totalDiff = 0; //Variable to store the sum of MoM differences - initialise with dummy data
+var avgDiff = 0; //Variable to store the average MoM differences - initialise with dummy data
+var biggestMonth = ['Month',0]; //Array to store the largest profit month - initialise with dummy data
+var negativeMonth = ['Month',0]; //Array to stoe the largest loss month - initialise with dummy data
 
 console.log("Financial Analysis");
 console.log("----------------------------");
@@ -103,19 +103,19 @@ console.log("Total Months: " + totalMonths);
 for (var i = 0; i < totalMonths; i++) {
     //calculate the net total across the array
     netTotal += finances[i][1];
-
     //input the difference between each month into another array
-    if (i != 0) {
-        monthlyDiff[i-1] = finances[i][1] - finances[i-1][1];
-    }
 
-    //get the highest profit value and month
-    if (finances[i][1] > biggestMonth[1]) {
-        biggestMonth = [finances[i][0],finances[i][1]];
-    }
-    //get the largest loss value and month
-    if (finances[i][1] < negativeMonth[1]) {
-        negativeMonth = [finances[i][0],finances[i][1]];
+    if (i != 0) {
+        //keep a running value for highest profit
+        if (biggestMonth[1] < finances[i][1] - finances[i-1][1]) {
+            biggestMonth = [finances[i][0],finances[i][1] - finances[i-1][1]];
+        }
+        //keep a running value for lowest loss
+        if (negativeMonth[1] > finances[i][1] - finances[i-1][1]) {
+            negativeMonth = [finances[i][0],finances[i][1] - finances[i-1][1]];
+        }
+        //add MoM differences to an array
+        monthlyDiff[i-1] = finances[i][1] - finances[i-1][1];
     }
 }
 
