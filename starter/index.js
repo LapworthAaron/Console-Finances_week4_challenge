@@ -111,21 +111,21 @@ for (var i = 0; i < totalMonths; i++) {
 
     //get the highest profit value and month
     if (finances[i][1] > biggestMonth[1]) {
-        biggestMonth[0] = finances[i][0];
-        biggestMonth[1] = finances[i][1];
+        biggestMonth = [finances[i][0],finances[i][1]];
     }
     //get the largest loss value and month
     if (finances[i][1] < negativeMonth[1]) {
-        negativeMonth[0] = finances[i][0];
-        negativeMonth[1] = finances[i][1];
+        negativeMonth = [finances[i][0],finances[i][1]];
     }
 }
 
 console.log("Total: $" + netTotal);
 
+//for loop to sum up MoM changes
 for (var i = 0; i < totalMonths-1; i++) {
     totalDiff += monthlyDiff[i];
 }
+//calculate the avg of the MoM changes (-1 from totalMonths as we don't use the first month)
 avgDiff = totalDiff/(totalMonths-1);
 
 console.log("Average Change: $" + avgDiff.toFixed(2));
