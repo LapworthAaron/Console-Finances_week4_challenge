@@ -103,8 +103,8 @@ console.log("Total Months: " + totalMonths);
 for (var i = 0; i < totalMonths; i++) {
     //calculate the net total across the array
     netTotal += finances[i][1];
-    //input the difference between each month into another array
 
+    //input the difference between each month into another array
     if (i != 0) {
         //keep a running value for highest profit
         if (biggestMonth[1] < finances[i][1] - finances[i-1][1]) {
@@ -125,6 +125,7 @@ console.log("Total: $" + netTotal);
 for (var i = 0; i < totalMonths-1; i++) {
     totalDiff += monthlyDiff[i];
 }
+
 //calculate the avg of the MoM changes (-1 from totalMonths as we don't use the first month)
 avgDiff = totalDiff/(totalMonths-1);
 
