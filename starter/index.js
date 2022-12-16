@@ -120,6 +120,6 @@ for (var i = 0; i < totalMonths-1; i++) {
 }
 
 //calculate the avg of the MoM changes (-1 from totalMonths as we don't use the first month)
-avgDiff = totalDiff/(totalMonths-1);
+avgDiff = Math.round((totalDiff/(totalMonths-1))*100)/100; //rounding is not required, but have done it for completeness
 
 console.log("Financial Analysis\n----------------------------\nTotal Months: " + totalMonths + "\nTotal: $" + netTotal + "\nAverage Change: $" + avgDiff.toFixed(2) + "\nGreatest Increase in Profits: " + biggestMonth[0] + " ($" + biggestMonth[1]  + ")\nGreatest Decrease in Profits: " + negativeMonth[0] + " ($" + negativeMonth[1] + ")");
