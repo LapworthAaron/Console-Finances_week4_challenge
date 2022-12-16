@@ -95,11 +95,6 @@ var avgDiff = 0; //Variable to store the average MoM differences - initialise wi
 var biggestMonth = ['Month',0]; //Array to store the largest profit month - initialise with dummy data
 var negativeMonth = ['Month',0]; //Array to stoe the largest loss month - initialise with dummy data
 
-console.log("Financial Analysis");
-console.log("----------------------------");
-
-console.log("Total Months: " + totalMonths);
-
 for (var i = 0; i < totalMonths; i++) {
     //calculate the net total across the array
     netTotal += finances[i][1];
@@ -119,7 +114,7 @@ for (var i = 0; i < totalMonths; i++) {
     }
 }
 
-console.log("Total: $" + netTotal);
+
 
 //for loop to sum up MoM changes
 for (var i = 0; i < totalMonths-1; i++) {
@@ -129,7 +124,4 @@ for (var i = 0; i < totalMonths-1; i++) {
 //calculate the avg of the MoM changes (-1 from totalMonths as we don't use the first month)
 avgDiff = totalDiff/(totalMonths-1);
 
-console.log("Average Change: $" + avgDiff.toFixed(2));
-
-console.log("Greatest Increase in Profits: " + biggestMonth[0] + " ($" + biggestMonth[1] + ")")
-console.log("Greatest Decrease in Profits: " + negativeMonth[0] + " ($" + negativeMonth[1] + ")")
+console.log("Financial Analysis\n----------------------------\nTotal Months: " + totalMonths + "\nTotal: $" + netTotal + "\nAverage Change: $" + avgDiff.toFixed(2) + "\nGreatest Increase in Profits: " + biggestMonth[0] + " ($" + biggestMonth[1]  + ")\nGreatest Decrease in Profits: " + negativeMonth[0] + " ($" + negativeMonth[1] + ")");
