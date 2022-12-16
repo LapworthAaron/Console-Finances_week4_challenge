@@ -114,8 +114,6 @@ for (var i = 0; i < totalMonths; i++) {
     }
 }
 
-
-
 //for loop to sum up MoM changes
 for (var i = 0; i < totalMonths-1; i++) {
     totalDiff += monthlyDiff[i];
